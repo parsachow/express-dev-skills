@@ -9,12 +9,14 @@
 <body>
     <a href="/">Home Page</a> 
     <h1>Skills</h1>
+    <a href="/skills/new">Add a New Dev Skill</a>
     <ul>
         <% skills.forEach(function(sk) { %>
           <li>
             <a href="/skills/<%= sk.id %>"><%= sk.skills %></a>
               - 
             <%= sk.complete ? 'complete' : 'not complete' %>
+
           </li>
         <% }); %>
       </ul>
