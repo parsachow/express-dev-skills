@@ -9,11 +9,21 @@ module.exports = {
     getAll,
     getOne,
     create,
+    deleteOne
     
 };
+
+function deleteOne(skill){
+    id = parseInt(id)
+    const idx = skills.findIndex(skill => skill.id === id);
+    skills.splice(idx, 1);
+}
+
 function create(skill) {
+    skill.id = Date.now() % 1000000;
     skill.complete = true;
     skills.push(skill)
+    return skill
 }
 
 function getAll(){

@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var methodOverride = require('method-override');
 
 var indexRouter = require('./routes/index');
 var skillsRouter = require('./routes/skills');
@@ -13,6 +14,19 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+app.use(function(req, res, next){
+  console.log('middleware function is running');
+
+  next()
+
+  // if(req.query._method === 'DELETE' || req.query._method === 'PUT'){
+  //   req.method = req.query._method // DElete or PUt
+  // }
+  // call next to pass the req object to the next middleware function 
+  // app.use(logger('dev'))
+})
+
+app.use(methodOverride('_method'));
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

@@ -12,6 +12,11 @@
     <a href="/skills">All Dev Skills</a>
     <h3><%= skill.skill %></h3>
     <h3>Complete: <%= skill.complete ? 'Yes' : 'No' %></h3>
+
+    <form method="POST" action="/skills/:id?_method=DELETE" >
+      
+      <button type="submit">Delete a Skill</button>
+    </form>
   </body>
   
 </html>
